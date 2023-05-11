@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+    <div id="output"></div>
+    <hr>
+    <div class="keys">
+    <button id = "ac">AC</button>
+    <button id = "ce">CE</button>
+    <button id= "op">+/-</button>
+    <button >/</button>
+    <button >7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>*</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>-</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>+</button>
+    <button>%</button>
+    <button>0</button>
+    <button>.</button>
+    <button id = "equal">=</button>
+   </div>
+   <script>
+    const btn  = document.querySelectorAll(".keys button");
+   for(let i=0;i<btn.length;i++)
+    btn[i].addEventListener("click",func);
+    let str = "";
+     function func(e){
+       
+        if(e.target.id!="ac"&&e.target.id!="ce"
+       &&e.target.id!="op"&&e.target.id!="equal" )
+       {
+         str+=e.target.textContent.trim();
+       }
+       else if(e.target.id == "equal"){
+        str = eval(str);
+       }
+       else if(e.target.id == "ac")
+       {
+          str = ""
+       }
+       else if(e.target.id == "ce"){
+        let res =""
+        for(let i=0;i<str.length-1;i++) res+=str[i];
+        str = res;
+       }
+       document.getElementById("output").textContent = str;
+     }
+     
+   </script>
+</body>
+</html>
